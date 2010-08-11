@@ -5,15 +5,16 @@
 gini <- read.csv("data/gini.csv.bz2")
 gini$code <- rownames(gini)
 juaritos <- gini[235,]
-gini$code <- reorder(gini$code, gini$Gini)
+gini$code <- reorder(gini$code, -gini$Gini)
 p <- ggplot(gini, aes(code, Gini)) +
     geom_point(alpha = .1) +
     geom_point(data = juaritos, aes(code, Gini), color = "red",
                size= 4) +
-    annotate("text", x = "235", y = .46, label = "Cd. Juarez",
+    annotate("text", x = "235", y = .41, label = "Cd. Juarez",
              hjust = 1) +
     opts(title = "Gini Coefficient (2005)") +
-    ylab("") + xlab("Municipalities") +
+    ylab("gini coefficient (lower is more equal)") +
+    xlab("Municipalities") +
     scale_x_discrete(breaks = NA) +
     scale_y_continuous(limits = c(0,.7))
 savePlot(p, "charts/gini.png")
@@ -33,7 +34,7 @@ p <- ggplot(pib, aes(Clave, PIB)) +
     annotate("text", x = "235", y = 13700, label = "Cd. Juarez",
              hjust = 1.5) +
     opts(title ="GDP per Capita (2005)") +
-    ylab("dollars") + xlab("Municipalities") +
+    ylab("ppp dollars") + xlab("Municipalities") +
     scale_x_discrete(breaks = NA) +
     scale_y_continuous(limits = c(0,33000))
 savePlot(p, "charts/pib.png")

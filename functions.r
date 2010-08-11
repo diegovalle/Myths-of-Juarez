@@ -5,6 +5,12 @@ subMuni <- function(df, munis) {
 }
 
 plotHomicide <- function(df, sub, title) {
+    cols <- c("Badiraguato" = "#FB9A99","Cd. Juarez" = "#E31A1C",
+              "Tijuana" = "#A6CEE3", "Acapulco" = "#1F78B4",
+              "Nuevo Laredo" = "#B2DF8A",
+              "Lazaro Cardenas" = "#33A02C",
+              "Matamoros" = "#FDBF6F", "Miguel Hidalgo" = "#FF7F00",
+              "Toluca" = "#CAB2D6", "Naucalpan" = "#6A3D9A")
     df <- subset(df, variable == sub & Year)
     df <- ddply(df, .(Municipality), transform,
                        order = value[Year == 2007])
@@ -15,7 +21,8 @@ plotHomicide <- function(df, sub, title) {
         scale_x_continuous(limits = c(1990, 2010)) +
         scale_y_continuous(limits = c(0, max(df$value))) +
         ylab("homicide rate") +
-        opts(title = title)
+        opts(title = title) +
+        scale_colour_manual(values = cols)
 }
 
 addLabels <- function(p) direct.label(p, "last.points")

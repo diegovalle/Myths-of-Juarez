@@ -60,7 +60,7 @@ jm$monthly <- na.spline(c(544496, rep(NA,59), jm$pop.juarez))[61:336]
 jm$rate <- jm$Total / jm$monthly * 100000 * 12
 
 p <- ggplot(jm, aes(date, rate)) +
-    geom_line(color = "darkred") +
+    geom_line(color = "darkred", size = .3) +
     geom_vline(aes(xintercept = guajardo)) +
     scale_x_date() +
     ylab("annualized monthly homicide rate") +
