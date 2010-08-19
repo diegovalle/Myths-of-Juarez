@@ -1,9 +1,9 @@
 ﻿Myths of Ciudad Juarez
 =======================
 
-* The homicide rate was not different from other border cities
-* The homicide rate for women was not especially high for Mexico and not different from any other border city
-* Ciudad Juarez is not poor or unequal as measured by its gini coefficients relative to other Mexican municipalities
+* The homicide rate in Ciudad Juarez was not different from other border cities.
+* The homicide rate for women, while certainly higher than average for Mexico, was lower than in other large urban areas and not significantly different from other border cities.
+* Ciudad Juarez is not poor or particularly unequal as measured by its gini coefficients relative to other Mexican municipalities.
 
 Data Sources
 ------------
