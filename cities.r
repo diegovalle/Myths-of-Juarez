@@ -32,4 +32,10 @@ filenames <- list("charts/women.png", "charts/rates.png",
 
 mapply(plotM, dfs, subs, titles, filenames)
 
-
+jt <- read.csv("data/juarez-toluca.csv")
+jt$rate <- jt$Hfemenino / jt$Femenino * 10^5
+p <- ggplot(jt, aes(Year, rate, group = MA, color = MA)) +
+  geom_line() +
+  opts(title = "Homicide rates in the metropolitan areas of Ciudad Juárez and Toluca (1990 - 2007)") +
+  xlim(1990, 2009)
+savePlot(direct.label(p, "last.points"), "charts/juarez-toluca")
